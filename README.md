@@ -1,1 +1,1 @@
-# causal-inference2026
+# Causal Inference Lab Material (Spring 2026 - Hertie School)
