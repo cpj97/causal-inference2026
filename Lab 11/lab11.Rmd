@@ -174,14 +174,15 @@ castle %>%
 
 A natural first pass is the familiar two-way fixed effects regression:
 
-Y_{st} = alpha_s + lambda_t + beta D_{st} + epsilon_{st}
-
+\[
+Y_{st} = \alpha_s + \lambda_t + \tau D_{st} + \varepsilon_{st}
+\]
 where:
 
-- (Y_{st}) is the log homicide rate in state (s) and year (t),
-- (D_{st}) equals 1 once a state is exposed to Castle Doctrine,
-- (alpha_s) are state fixed effects,
-- (lambda_t) are year fixed effects.
+- ($Y_{st}$) is the log homicide rate in state ($s$) and year ($t$),
+- ($D_{st}$) equals 1 once a state is exposed to Castle Doctrine,
+- ($\alpha_s$) are state fixed effects,
+- ($\lambda_t$) are year fixed effects.
 
 ```{r twfe}
 twfe_mod <- feols(
@@ -262,7 +263,7 @@ cs_mod <- att_gt(
   idname = "sid",
   gname = "first_treat",
   data = castle,
-  control_group = "nevertreated",
+  control_group = "notyettreated",
   est_method = "reg",
   bstrap = FALSE,
   cband = FALSE
